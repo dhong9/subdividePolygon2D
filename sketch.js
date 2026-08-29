@@ -41,6 +41,14 @@ function setup() {
 function draw() {
     background(220); // Clears the screen with a light gray background each frame
     canvasCursor.draw();
+
+    // Test string art code
+    var p1 = [25, 100];
+    var p2 = [160, 125];
+    var p3 = [150, 200];
+    var n = 2;
+    var stringArt = new StringArt(p1, p2, p3, n);
+    stringArt.draw();
 }
 
 function mousePressed() {
