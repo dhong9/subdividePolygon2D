@@ -6,6 +6,11 @@ function StringArt(p1, p2, p3, subdivisions) {
 }
 
 StringArt.prototype.draw = function() {
+    // Connect points
+    strokeWeight(5);
+    stroke(45, 247, 244);
+    line(this.p1[0], this.p1[1], this.p2[0], this.p2[1]);
+    line(this.p2[0], this.p2[1], this.p3[0], this.p3[1]);
 
     // Draw points
     strokeWeight(10);
