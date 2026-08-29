@@ -22,7 +22,7 @@ StringArt.prototype.drawWeb = function() {
     var l2_x = this.p2[0] - this.p3[0];
     var l2_y = this.p2[1] - this.p3[1];
     var lines = [];
-    var intersections = [];
+    var intersections = [this.p1];
     for (var i = 1; i <= this.subdivisions; i++) {
         var dx_1 = l1_x / -~this.subdivisions;
         var dy_1 = l1_y / -~this.subdivisions;
@@ -53,16 +53,20 @@ StringArt.prototype.drawWeb = function() {
         stroke(171, 255, 25);
         point(sub1_x, sub1_y);
         point(sub2_x, sub2_y);
-
-        for (let i = 0; i < lines.length - 1; i++) {
-            var intersect = this.findIntersection(lines[i], lines[i + 1]);
-            intersections.push(intersect);
-        }
     }
+
+    for (var i = 0; i < lines.length - 1; i++) {
+        var intersect = this.findIntersection(lines[i], lines[i + 1]);
+        intersections.push(intersect);
+    }
+    intersections.push(this.p3);
 
     // Connect new points
     strokeWeight(5);
     stroke(17, 3, 105);
+    for (var i = 0; i < intersections.length - 1; i++) {
+        line(intersections[i][0], intersections[i][1], intersections[i + 1][0], intersections[i + 1][1]);
+    }
 
     // Show intersections
     strokeWeight(5);
