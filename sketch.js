@@ -46,7 +46,7 @@ function draw() {
     var p1 = [25, 100];
     var p2 = [160, 125];
     var p3 = [150, 200];
-    var n = 2;
+    var n = 3;
     var stringArt = new StringArt(p1, p2, p3, n);
     stringArt.draw();
 }
